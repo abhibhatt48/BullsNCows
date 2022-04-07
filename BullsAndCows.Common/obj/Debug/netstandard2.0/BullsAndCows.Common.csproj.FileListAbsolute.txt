@@ -1,0 +1,16 @@
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.deps.json
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.dll
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.pdb
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.csprojAssemblyReference.cache
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.AssemblyInfoInputs.cache
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.AssemblyInfo.cs
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.dll
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.pdb
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.deps.json
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.dll
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\bin\Debug\netstandard2.0\BullsAndCows.Common.pdb
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.csprojAssemblyReference.cache
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.AssemblyInfoInputs.cache
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.AssemblyInfo.cs
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.dll
+C:\Users\bhatt\Desktop\BullsAndCows\BullsAndCows\BullsAndCows.Common\obj\Debug\netstandard2.0\BullsAndCows.Common.pdb

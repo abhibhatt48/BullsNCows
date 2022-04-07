@@ -1,0 +1,123 @@
+﻿@model BullsAndCows.Models.ViewModels.GameViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h3 class="text-center mb-5 mt-3"><span style="border-bottom: 3px solid black">Guess the number:</span></h3>
+    <div class="row flex-column flex-sm-row justify-content-center align-content-center">
+        <div class="col-12 col-sm-4 d-flex flex-column justify-content-center align-items-center" id="userInputBlock">
+            <label for="userNumber" class="lead" style="font-weight: 400">Type your guess below:</label>
+            <input class="d-block mt-1 mb-3 p-1 text-center" type="number" id="userNumber" placeholder="Your number..." style="border-radius: 5px; font-size:1.1rem" />
+            <button class="btn btn-primary" id="playBtn">Make a guess</button>
+            <a id="tryAgainBtn" class="btn btn-secondary mt-1 px-4" asp-action="Index">Try again</a>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
+            <ul class="py-3" id="guessesList" style="font-size: 1.2rem;"></ul>
+        </div>
+        <div class="col-12 col-md-3 d-flex flex-wrap justify-content-center align-items-center">
+            <p id="answerNum" style="font-size:2rem">....</p>
+        </div>
+    </div>
+    <form hidden method="post" asp-controller="Game" asp-action="Win" asp-route-gameId="@Model.Id">
+        <input asp-for="@Model.Id" />
+        <input type="submit" id="winBtn" />
+    </form>
+</div>
+
+<script>
+(function play(answer) {
+    let tryAgainBtn = document.getElementById("tryAgainBtn");
+    tryAgainBtn.style.visibility = "hidden";
+
+    let playBtn = document.getElementById("playBtn");
+    playBtn.addEventListener("click", onPlayerGuess);
+    
+    let userGuessesList = document.getElementById("guessesList");
+    let userInputBlock = document.getElementById("userInputBlock");
+    let userInput = document.getElementById("userNumber");    
+
+    let playerGuessesCounter = 0;
+    let answerNumberArr = Array.from(answer.toString());
+
+    function onPlayerGuess() {
+        playerGuessesCounter++;
+
+        let userNumStr = userInput.value;
+        let userNumber = Number(userNumStr);
+
+        let isValidInput = validateUserInput(userNumStr, userNumber);
+
+        if (isValidInput) {
+            if (playerGuessesCounter > 8) {
+                loose();
+            } else {
+                if (userNumber === answer) {
+                    document.getElementById("winBtn").click();
+                } else {
+                    let outputText = getBullsAndCows(userNumStr);
+
+                    let output = document.createElement("li");
+                    output.classList.add("mb-1");
+                    output.textContent = outputText;
+
+                    userGuessesList.appendChild(output);
+                }
+            }
+        }
+
+        function validateUserInput(userNumStr, userNumber) {
+            if (userNumStr === "" || !Number.isInteger(userNumber) || userNumber < 0 || userNumStr.startsWith("0")) {
+                playerGuessesCounter--;
+                alert("Please enter a valid positive integer number!");
+                return false;
+            }
+            return true;
+        }
+
+        function loose() {
+            let looseElement = document.createElement("p");
+            looseElement.classList.add("text-danger");
+            looseElement.classList.add("mt-1");
+            looseElement.classList.add("display-4");
+            looseElement.textContent = "You lost!";
+            
+            userInputBlock.appendChild(looseElement);             
+
+            userInputBlock.removeChild(playBtn);
+            tryAgainBtn.style.visibility = "visible";
+
+            let answerElement = document.getElementById("answerNum");                            
+            answerElement.textContent = `Answer: ${answer}`;
+        }
+
+        function getBullsAndCows(userNumStr) {
+            let userNumberArr = Array.from(userNumStr);
+            let bullsCount = 0;
+            let cowsCount = 0;
+
+            for (let i = 0; i < userNumberArr.length; i++) {
+                const numStr = userNumberArr[i];
+
+                if (answerNumberArr.includes(numStr)) {
+                    let indexMatch = numStr === answerNumberArr[i];
+
+                    if (indexMatch) {
+                        bullsCount++;
+                    } else {
+                        cowsCount++;
+                    }
+                }
+            }
+
+            let bullsWord = bullsCount === 1 ? "bull" : "bulls";
+            let cowsWord = cowsCount === 1 ? "cow" : "cows";
+
+            return `${bullsCount} ${bullsWord} and ${cowsCount} ${cowsWord}. Your guess: ${userNumber}`;
+        }
+    }
+})(@Model.Number);
+</script>
+
